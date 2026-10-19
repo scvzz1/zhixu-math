@@ -1,0 +1,15 @@
+{
+  "name": "zhixu-math",
+  "version": "0.1.0",
+  "private": true,
+  "description": "知序 · 考研数学训练：本地优先的单页练习应用，自带 193 道自有题库",
+  "license": "MIT",
+  "scripts": {
+    "prep": "node scripts/prep.cjs",
+    "test": "node scripts/prep.cjs && node scripts/run-all.cjs",
+    "test:browser": "node verify-stage6-browser.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.2"
+  }
+}
