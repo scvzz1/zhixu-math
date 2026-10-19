@@ -252,7 +252,7 @@ console.log('=== 5. 20 题答案独立复算（换方法，不复用解析推导
 
 console.log('');
 console.log('=== 6. 撤掉经典库后：知识点与建议题型全覆盖 ===');
-const md = fs.readFileSync(path.join(dir, '..', 'candidates', '出题施工图.md'), 'utf8').replace(/<br\s*\/?>/gi, ' ');
+const md = fs.readFileSync(path.join(dir, '出题施工图.md'), 'utf8').replace(/<br\s*\/?>/gi, ' ');
 const ROW = /^\|\s*(kp-t\d-\d\d)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|\s*$/;
 const cl = x => String(x).replace(/\*/g, '').trim();
 const tset = x => String(x).replace(/\*/g, '').split(/[·+\/、]/).map(z => z.trim()).filter(Boolean);
