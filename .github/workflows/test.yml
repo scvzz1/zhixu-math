@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   offline:
     runs-on: ubuntu-latest
@@ -25,10 +29,9 @@ jobs:
       - run: npm install
       - run: node scripts/prep.cjs
       - name: 安装 Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser || sudo apt-get install -y chromium
+        id: chrome
+        uses: browser-actions/setup-chrome@v1
       - name: 端到端（真实 Chrome）
         env:
-          CHROME_PATH: /usr/bin/chromium
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
         run: node verify-stage6-browser.cjs
